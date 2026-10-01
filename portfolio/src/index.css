@@ -1,0 +1,427 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-mist: #f2f3f4;
+  --color-sand: #ded1c6;
+  --color-mauve: #a77693;
+  --color-ocean: #174871;
+  --color-midnight: #0f2d4d;
+
+  /* Legacy mappings for seamless component compatibility */
+  --color-lilac: #ded1c6;
+  --color-orchid: #174871;
+  --color-plum: #0f2d4d;
+  --color-peach: #ded1c6;
+  --color-sage: #a77693;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: #f2f3f4;
+  color: #0f2d4d;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  selection-background-color: var(--color-sand);
+  selection-color: var(--color-ocean);
+}
+
+/* Custom Scrollbar with New Gradient Palette */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f3f4;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a77693, #174871);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0f2d4d;
+}
+
+/* Custom Gradients from User Image */
+.gradient-01 {
+  background: linear-gradient(135deg, #f2f3f4 0%, #ded1c6 100%);
+}
+
+.gradient-02 {
+  background: linear-gradient(135deg, #ded1c6 0%, #a77693 100%);
+}
+
+.gradient-03 {
+  background: linear-gradient(135deg, #a77693 0%, #174871 100%);
+}
+
+.gradient-04 {
+  background: linear-gradient(180deg, #ded1c6 0%, #a77693 33%, #174871 66%, #0f2d4d 100%);
+}
+
+.gradient-05 {
+  background: linear-gradient(135deg, #174871 0%, #0f2d4d 100%);
+}
+
+/* Gradient Text Clips */
+.text-gradient-hero {
+  background: linear-gradient(135deg, #174871 0%, #a77693 50%, #0f2d4d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-mauve {
+  background: linear-gradient(135deg, #a77693 0%, #174871 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+/* 3D Container & Interactive Classes */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cube-container {
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.cube-container:active {
+  cursor: grabbing;
+}
+
+/* 100% Always Visible Content */
+.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-down {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Sticky Overlapping Card Stacking Effect */
+.sticky-overlapping-sheet {
+  position: sticky;
+  background: #ffffff;
+  border: 1.5px solid #ded1c6;
+  border-radius: 2rem;
+  box-shadow: 0 25px 65px -15px rgba(15, 45, 77, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style;
+}
+
+.sticky-overlapping-sheet:hover,
+.sticky-overlapping-sheet.sheet-active {
+  border-color: #a77693;
+  box-shadow: 0 35px 80px -15px rgba(15, 45, 77, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+}
+
+/* Horizontal Scrollbar for Projects */
+.scrollbar-horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+.scrollbar-horizontal::-webkit-scrollbar-track {
+  background: #ded1c6/30;
+  border-radius: 4px;
+}
+.scrollbar-horizontal::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #a77693, #174871);
+  border-radius: 4px;
+}
+.scrollbar-horizontal::-webkit-scrollbar-thumb:hover {
+  background: #0f2d4d;
+}
+
+/* Nested Glass Cards inside Sections */
+.glass-card {
+  background: #ffffff;
+  border: 1px solid #ded1c6;
+  box-shadow: 0 4px 20px -4px rgba(15, 45, 77, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: #ffffff;
+  border-color: #a77693;
+  box-shadow: 0 12px 30px -6px rgba(15, 45, 77, 0.16);
+  transform: translateY(-4px);
+}
+
+/* 3D Flip Card Effect */
+.flip-card-inner {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 70%
+  );
+  transform: rotate(25deg);
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shimmer-effect:hover::after {
+  animation: shimmer 1.2s ease-in-out;
+  opacity: 1;
+}
+
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* Dark Mode Theme System */
+.dark-theme {
+  background-color: #0b223a !important;
+  color: #f2f3f4 !important;
+}
+
+.dark-theme .sticky-overlapping-sheet {
+  background: #0f2d4d !important;
+  border-color: #174871 !important;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme .sticky-overlapping-sheet:hover,
+.dark-theme .sticky-overlapping-sheet.sheet-active {
+  border-color: #a77693 !important;
+  box-shadow: 0 35px 80px -15px rgba(167, 118, 147, 0.3) !important;
+}
+
+.dark-theme .flip-card-front,
+.dark-theme .glass-card {
+  background: #174871 !important;
+  border-color: #0f2d4d !important;
+  color: #f2f3f4 !important;
+}
+
+.dark-theme nav {
+  background: rgba(15, 45, 77, 0.95) !important;
+  border-color: #174871 !important;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4 {
+  color: #f2f3f4 !important;
+}
+
+.dark-theme p {
+  color: #ded1c6 !important;
+}
+
+/* Blue Grid Motion Background */
+.blue-grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.blue-grid-pattern {
+  position: absolute;
+  inset: -120px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 72, 113, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 72, 113, 0.14) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: gridMotion 20s linear infinite;
+}
+
+.dark-theme .blue-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(167, 118, 147, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 72, 113, 0.3) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes gridMotion {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(56px) rotate(0deg);
+  }
+}
+
+.blue-grid-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(23, 72, 113, 0.22) 0%, rgba(15, 45, 77, 0.06) 60%, transparent 80%);
+  filter: blur(70px);
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+.dark-theme .blue-grid-glow {
+  background: radial-gradient(circle, rgba(23, 72, 113, 0.5) 0%, rgba(167, 118, 147, 0.25) 60%, transparent 80%);
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.4; transform: translateX(-50%) scale(0.9); }
+  100% { opacity: 0.95; transform: translateX(-50%) scale(1.15); }
+}
+
+.blue-grid-scanner {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(180deg, transparent 0%, rgba(23, 72, 113, 0.18) 50%, transparent 100%);
+  animation: scanLine 12s ease-in-out infinite;
+}
+
+.dark-theme .blue-grid-scanner {
+  background: linear-gradient(180deg, transparent 0%, rgba(167, 118, 147, 0.25) 50%, transparent 100%);
+}
+
+@keyframes scanLine {
+  0% { top: -25%; }
+  100% { top: 125%; }
+}
+
+/* Top-View Moving Water Ripples & Caustics Background */
+.water-bg-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.water-surface {
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(23, 72, 113, 0.15) 0%, rgba(242, 243, 244, 0.9) 70%);
+  filter: url(#water-ripple-filter);
+  transform: scale(1.1);
+  animation: waterDistort 16s ease-in-out infinite alternate;
+}
+
+.dark-theme .water-surface {
+  background: radial-gradient(ellipse at 50% 30%, rgba(23, 72, 113, 0.5) 0%, rgba(11, 34, 58, 0.95) 70%);
+}
+
+@keyframes waterDistort {
+  0% { transform: scale(1.05) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(1deg); }
+  100% { transform: scale(1.08) rotate(-1deg); }
+}
+
+/* Concentric Expanding Water Ripples (Raindrop on Water surface view) */
+.water-ripple-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(23, 72, 113, 0.25);
+  box-shadow: 0 0 15px rgba(23, 72, 113, 0.15) inset, 0 0 15px rgba(23, 72, 113, 0.15);
+  animation: expandRipple 8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.dark-theme .water-ripple-ring {
+  border-color: rgba(167, 118, 147, 0.35);
+  box-shadow: 0 0 20px rgba(167, 118, 147, 0.2) inset, 0 0 20px rgba(23, 72, 113, 0.3);
+}
+
+.r1 { top: 25%; left: 20%; width: 120px; height: 120px; animation-delay: 0s; }
+.r2 { top: 60%; left: 70%; width: 150px; height: 150px; animation-delay: 2.5s; }
+.r3 { top: 40%; left: 50%; width: 180px; height: 180px; animation-delay: 5s; }
+.r4 { top: 80%; left: 30%; width: 140px; height: 140px; animation-delay: 1.2s; }
+
+@keyframes expandRipple {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(3.8);
+    opacity: 0;
+  }
+}
+
+/* Organic Shimmering Water Caustics Overlay */
+.water-caustics-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(222, 209, 198, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(167, 118, 147, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(23, 72, 113, 0.25) 0%, transparent 50%);
+  filter: blur(40px);
+  animation: causticFloat 14s ease-in-out infinite alternate;
+}
+
+.dark-theme .water-caustics-overlay {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(167, 118, 147, 0.35) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(23, 72, 113, 0.5) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(15, 45, 77, 0.6) 0%, transparent 50%);
+}
+
+@keyframes causticFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.08); }
+  100% { transform: translate(25px, -15px) scale(0.95); }
+}
